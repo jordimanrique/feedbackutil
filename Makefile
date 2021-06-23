@@ -8,8 +8,7 @@ help: Makefile
 
 ## install: 	        Install packages.
 install:
-	export XDEBUG_ENABLED=0;	docker-compose run --rm php composer install
-	@ln -sf ../doc/hooks .git/ && echo "hooks initialized"
+	export XDEBUG_ENABLED=0;	docker-compose run --rm php-service composer install
 
 ## up:		        Init environment.
 up:
@@ -25,8 +24,8 @@ logs:
 
 ## shell:                 Interactive shell to use commands inside docker
 shell:
-	export XDEBUG_ENABLED=0;	docker-compose exec php bash
+	export XDEBUG_ENABLED=0;	docker-compose exec php-service bash
 
 ## all_tests: 		Run all unit tests
 all_tests:
-	export XDEBUG_ENABLED=0;	docker-compose exec php bin/phpunit -c phpunit.xml
+	export XDEBUG_ENABLED=0;	docker-compose exec php-service bin/phpunit -c phpunit.xml
