@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8181:80"
+    volumes:
+      - ./:/www
+      - ./site.conf:/etc/nginx/conf.d/site.conf
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=hola
+      - MYSQL_DATADIR=/var/lib/mysql
+    expose:
+      - 3308
+    ports:
+      - "3308:3306"
