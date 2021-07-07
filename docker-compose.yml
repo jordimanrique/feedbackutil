@@ -49,3 +49,13 @@ services:
       - MYSQL_USER=user
     networks:
       - nginx-php-mysql
+
+  #node
+  node-service:
+    image: node:latest
+    container_name: node-container
+    working_dir: /var/www/project
+    volumes:
+      - ./app/:/var/www/project
+    networks:
+      - nginx-php-mysql
