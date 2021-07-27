@@ -9,9 +9,9 @@ class CreateDimension
 {
     private DimensionRepository $dimensionRepository;
 
-    public function __construct(DimensionRepository $repository)
+    public function __construct(DimensionRepository $mysqlRepository)
     {
-        $this->dimensionRepository = $repository;
+        $this->dimensionRepository = $mysqlRepository;
     }
 
     public function execute(CreateDimensionRequest $request): CreateDimensionResponse
