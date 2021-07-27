@@ -12,11 +12,19 @@ class Dimension
 
     private Identity $identity;
 
-    public function __construct(Identity $identity, string $name, int $weight)
+    public function __construct(string $name, int $weight)
     {
         $this->name = $name;
         $this->weight = $weight;
-        $this->identity = $identity;
+        $this->identity = new Identity();
+    }
+
+    public static function createFromValues(Identity $uuid, string $name, int $weight): self
+    {
+        $self = new self($name, $weight);
+        $self->identity = $uuid;
+
+        return $self;
     }
 
     public function getName(): string

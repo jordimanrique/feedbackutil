@@ -1,0 +1,6 @@
+services:
+
+    # App\Infrastructure\Repositories\Dimension\DimensionMysqlRepository: ~
+
+    App\Domain\Dimension\DimensionRepository $mysqlRepository: '@App\Infrastructure\Repositories\Dimension\DimensionMysqlRepository'
+    App\Domain\Dimension\DimensionRepository: '@App\Infrastructure\Repositories\Dimension\DimensionCacheRepository'

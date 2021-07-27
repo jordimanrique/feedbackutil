@@ -17,4 +17,12 @@ class Identity
     {
         return $this->uuid;
     }
+
+    public static function createFromValue(string $uuid): self
+    {
+        $identity = new self();
+        $identity->uuid = $uuid;
+
+        return $identity;
+    }
 }

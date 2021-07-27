@@ -8,20 +8,11 @@ use App\Domain\Identity;
 use App\Infrastructure\Persistence\Dimension\DimensionPersistable;
 use Doctrine\DBAL\Connection;
 
-class DimensionMysqlRepository implements DimensionRepository
+class DimensionCacheRepository implements DimensionRepository
 {
-    const TABLE = 'dimension';
-
-    private Connection $connection;
-
-    public function __construct(Connection $connection)
-    {
-        $this->connection = $connection;
-    }
-
     public function save(Dimension $dimension)
     {
-        $this->connection->insert(self::TABLE, DimensionPersistable::toArray($dimension));
+        echo ' SOC CACHE';
     }
 
     public function find(Identity $identity)
