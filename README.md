@@ -9,3 +9,12 @@
   
 ##FIRST PAGE
 http://localhost:8989
+
+
+##MYSQL INIT
+GRANT ALL ON feedbackutil.* TO 'user';
+CREATE TABLE `feedbackutil`.`dimension` (
+`uuid` CHAR(45) NOT NULL,
+`name` VARCHAR(45) NULL,
+`weight` INT NULL,
+PRIMARY KEY (`uuid`));

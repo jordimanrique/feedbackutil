@@ -17,9 +17,21 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            - '../src/Entity/'
             - '../src/Kernel.php'
             - '../src/Tests/'
+            - '../src/Domain/'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Application\Sandbox\DisableAutowireExample:
+        arguments:
+            $key: 'key fotuda'
+
+    App\Domain\Sandbox\DomainService:
+        arguments:
+            $prova: 'lalalal'
+
+imports:
+    - { resource: services_infrastructure.yaml }
+    - { resource: services_application.yaml }
