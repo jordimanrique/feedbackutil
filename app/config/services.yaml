@@ -34,4 +34,5 @@ services:
 
 imports:
     - { resource: services_infrastructure.yaml }
+    - { resource: services_infrastructure_presenters.yaml }
     - { resource: services_application.yaml }

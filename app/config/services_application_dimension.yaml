@@ -2,3 +2,5 @@ services:
     App\Application\Dimension\CreateDimension:
         # arguments:
         #    $dimensionRepository: '@App\Infrastructure\Repositories\Dimension\DimensionMysqlRepository'
+
+    App\Application\Dimension\GetDimension\GetDimension:

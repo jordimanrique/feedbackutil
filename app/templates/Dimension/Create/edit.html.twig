@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+<form action="{{ path('app_save_dimension') }}" method="post">
+    <label for="weight">Weight</label>
+    <input type="text" value="{{ dimension ? dimension.weight : '' }}" name="weight" id="weight">
+    <label for="name">Name</label>
+    <input type="text" value="{{ dimension ? dimension.name : '' }}" name="name" id="name">
+    <input type="submit" value="Guardar">
+</form>
+{% endblock %}

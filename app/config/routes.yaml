@@ -10,9 +10,9 @@ app_autowire_test:
   path: /sandbox/autowire
   controller: App\Controller\Sandbox\SandboxController::autowireTest
 
-app_create_dimension:
-  path: /dimension/create/{name}/{weight}
-  controller: App\Controller\Dimension\DimensionController::create
+app_create_dimension_auto:
+  path: /dimension/create_auto/{name}/{weight}
+  controller: App\Controller\Dimension\DimensionController::createAuto
   methods: GET
   defaults:
     name: 'default_name'
@@ -20,3 +20,20 @@ app_create_dimension:
   requirements:
     name: '[a-zA-Z]+'
     weight: '\d+'
+
+app_create_dimension:
+  path: /dimension/create
+  controller: App\Controller\Dimension\DimensionController::create
+  methods: GET
+
+app_save_dimension:
+  path: /dimension/save
+  controller: App\Controller\Dimension\DimensionController::save
+  methods: POST
+
+app_edit_dimension:
+  path: /dimension/edit/{identity}
+  controller: App\Controller\Dimension\DimensionController::edit
+  methods: GET
+  requirements:
+    name: '[a-zA-Z0-9\-]+'
