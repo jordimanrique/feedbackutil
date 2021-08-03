@@ -2,9 +2,9 @@
 
 namespace App\Controller\Dimension;
 
-use App\Application\Dimension\CreateDimension;
-use App\Application\Dimension\CreateDimensionPresenter;
-use App\Application\Dimension\CreateDimensionRequest;
+use App\Application\Dimension\CreateDimension\CreateDimension;
+use App\Application\Dimension\CreateDimension\CreateDimensionPresenter;
+use App\Application\Dimension\CreateDimension\CreateDimensionRequest;
 use App\Application\Dimension\GetDimension\GetDimension;
 use App\Application\Dimension\GetDimension\GetDimensionPresenter;
 use App\Application\Dimension\GetDimension\GetDimensionRequest;

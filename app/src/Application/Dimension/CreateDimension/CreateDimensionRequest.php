@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application\Dimension;
+namespace App\Application\Dimension\CreateDimension;
 
 class CreateDimensionRequest
 {

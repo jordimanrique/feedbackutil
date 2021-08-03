@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Infrastructure\Presenters\Application\Dimension;
+namespace App\Infrastructure\Presenters\Application\Dimension\CreateDimension;
 
-use App\Application\Dimension\CreateDimensionPresenter as CreateDimensionPresenterInterface;
+use App\Application\Dimension\CreateDimension\CreateDimensionPresenter as CreateDimensionPresenterInterface;
 use App\Domain\Dimension\Dimension;
 use App\Domain\Dimension\DimensionPresenter;
 

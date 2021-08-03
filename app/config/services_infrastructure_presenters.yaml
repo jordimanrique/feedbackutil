@@ -1,8 +1,8 @@
 services:
 
   #APPLICATION PRESENTERS
-  App\Infrastructure\Presenters\Application\Dimension\CreateDimensionPresenter: ~
-  App\Application\Dimension\CreateDimensionPresenter: '@App\Infrastructure\Presenters\Application\Dimension\CreateDimensionPresenter'
+  App\Infrastructure\Presenters\Application\Dimension\CreateDimension\CreateDimensionPresenter: ~
+  App\Application\Dimension\CreateDimension\CreateDimensionPresenter: '@App\Infrastructure\Presenters\Application\Dimension\CreateDimension\CreateDimensionPresenter'
 
   App\Infrastructure\Presenters\Application\Dimension\GetDimension\GetDimensionPresenter: ~
   App\Application\Dimension\GetDimension\GetDimensionPresenter: '@App\Infrastructure\Presenters\Application\Dimension\GetDimension\GetDimensionPresenter'
