@@ -8,6 +8,7 @@ use App\Application\Dimension\CreateDimension\CreateDimensionRequest;
 use App\Application\Dimension\GetDimension\GetDimension;
 use App\Application\Dimension\GetDimension\GetDimensionPresenter;
 use App\Application\Dimension\GetDimension\GetDimensionRequest;
+use App\Infrastructure\FlashTypeMessage;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -64,21 +65,30 @@ class DimensionController extends AbstractController
         CreateDimension $createDimension,
         CreateDimensionPresenter $createDimensionPresenter
     ): Response {
-
         $name = $request->get('name');
         $weight = $request->get('weight');
+        try {
 
-        $requestService = new CreateDimensionRequest();
-        $requestService->name = $name;
-        $requestService->weight = $weight;
+            $requestService = new CreateDimensionRequest();
+            $requestService->name = $name;
+            $requestService->weight = $weight;
 
-        $response = $createDimension->execute($requestService);
+            $response = $createDimension->execute($requestService);
 
-        // TODO flashbag
-        // TODO bootstrap, vue.js
+            $this->addFlash(FlashTypeMessage::SUCCESS, 'Dimension created');
 
-        return $this->redirectToRoute('app_edit_dimension', [
-            'identity' => $response->getData($createDimensionPresenter)['identity'],
+            return $this->redirectToRoute('app_edit_dimension', [
+                'identity' => $response->getData($createDimensionPresenter)['identity'],
+            ]);
+        } catch (\Exception $e) {
+            $this->addFlash(FlashTypeMessage::ERROR, 'Error creating dimension: '.$e->getMessage());
+        }
+
+        return $this->render('Dimension/Create/edit.html.twig', [
+            'dimension' => [
+                'name' => $name,
+                'weight' => $weight,
+            ],
         ]);
     }
 }
